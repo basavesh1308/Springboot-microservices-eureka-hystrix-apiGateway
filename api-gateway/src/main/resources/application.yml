@@ -26,16 +26,15 @@ spring:
         #        fallbackuri: forward:/paymentFallBack
 
 
-
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-
-  instance:
-    hostname: localhost
+# now we are referring cloud config server
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+#  instance:
+#    hostname: localhost
 
 server:
   port: 8989

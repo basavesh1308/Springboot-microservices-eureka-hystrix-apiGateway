@@ -10,18 +10,26 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
+@RefreshScope
 public class OrderService {
 
     Logger logger = LoggerFactory.getLogger(OrderService.class);
     @Autowired
     OrderRepository orderRepository;
 
+    @Lazy
     @Autowired
     RestTemplate restTemplate;
+
+    /*@Value("${microservice.payment-service.endpoints.endpoint.uri}")
+    private String END_POINT_URI;*/
 
     public ResponseDTO saveOrder(RequestDTO request) throws JsonProcessingException {
 
